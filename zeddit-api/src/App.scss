@@ -1,0 +1,20 @@
+@import './common/styles.scss';
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@600&family=IBM+Plex+Mono&family=Poppins:wght@100&family=Work+Sans:wght@100&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: $primary-color;
+}
+
+
+

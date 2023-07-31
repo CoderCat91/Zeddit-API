@@ -1,0 +1,68 @@
+@import '../../common/styles.scss';
+
+
+.Header {
+background-color: $primary-color;
+height: 72px;
+display: flex;
+justify-content: center;
+box-shadow: 0px 0px 8px #d06666;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+	align-items: center;
+	justify-content: space-around;
+    padding: 0.5em;
+}
+
+li {
+    list-style-type: none;
+    padding: 5px;
+}
+
+li:last-child {
+    margin-right: 50px;
+}
+button {
+    width: 4em;
+    height: 2.8em;
+    background-color: red;
+    border: none;
+    font-weight: bolder;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(131, 5, 5);
+}
+
+h1 {
+    font-size: 2rem;
+    color: $font-primary;
+    font-weight: bold;
+    font-family: 'Geologica', sans-serif;
+    text-align: center;
+}
+
+h3 {
+    color: $font-primary;
+}
+
+.logo {
+   height: 72px;
+   margin-left: 10px;
+}
+
+
+.logo img {
+    width: 72px;
+    height: 72px;
+    
+}
+
+
