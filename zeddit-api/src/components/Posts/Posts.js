@@ -40,8 +40,8 @@ return (
 )
 } else {
     return (
-    <div className="feed-wrapper">
-         <h3>{filter} posts in {selectedSubreddit}</h3>
+    <div className='feed-wrapper'>
+         <h3>{filter} Posts in <span>{selectedSubreddit}</span></h3>
          <ul>
                     <div className='feed-container'>
                     

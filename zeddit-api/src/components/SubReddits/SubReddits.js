@@ -1,10 +1,18 @@
 import React from 'react';
 import './SubReddits.scss'
+//import { useDispatch } from 'react-redux';
 
-const SubReddits = () => {
+const SubReddits = (props) => {
     return (
         <div className="subreddit-wrapper">
-            Subreddits
+            <div className='subreddit-boxes'>
+                <div className="boxes-icons">
+            <img src={props.thumbnail} alt="subreddit icons"/>
+                    </div>
+                <div className="boxes-text">
+                {props.name}
+                </div>
+            </div>
         </div>
     );
 };

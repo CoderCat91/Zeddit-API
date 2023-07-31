@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './Header.scss';
-import logo from '../../images/fox.png';
+import logo from '../../images/vecteezy_reddit-social-media-design-icon-symbol-logo-vector-illustration_8385783.png';
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../features/redditSlice";
 

@@ -1,7 +1,24 @@
 @import '../../common/styles.scss';
 
 .subreddit-wrapper {
-    background-color: aqua;
-    width: 33.3%;
-    justify-content: right;
+    width: 100%;
+}
+
+.subreddit-boxes {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    background-color: white;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.subreddit-boxes img {
+    height: 50px;
+    width: 50px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import search from '../../images/shutterstock_2279858155.png';
 import SearchResults from '../SearchResults/SearchResults';
 import './SearchBar.scss'
 
@@ -7,7 +8,7 @@ const SearchBar = () => {
         <div className="search-wrapper">
             <div className="search-bar">
             <form className ="search-form">
-                <img src='../../images/search-icon.png' alt=''/>
+                <img src={search} alt=''/>
                 <input
                 className='input'
                 placeholder='Search Subreddits'

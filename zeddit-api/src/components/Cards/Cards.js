@@ -6,8 +6,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Cards = (props) => {
 const gallery = props.galleryData;
+const image = props.thumbnail;
 
     const mediaViewer = () => {
+        if(!image) {
+            return (
+                <div>Haha</div>
+            )
+        }
         if(props.mediaType === 'hosted:video') {
             return (
                 <video className="reddit-video" controls>
@@ -23,9 +29,9 @@ const gallery = props.galleryData;
             return (
                 <div className="box">
       <Carousel useKeyboardArrows={true}>
-        {gallery.items.map((URL, index) => (
-          <div className="slide">
-            <img alt="sample_file" src={URL} key={index} />
+        {gallery.items.map((photos) => (
+          <div className="slide" key={photos.id}>
+            <img alt="sample_file" src={props.thumbnail} />
           </div>
         ))}
       </Carousel>
@@ -51,15 +57,18 @@ const gallery = props.galleryData;
                 <p>Posted on: u/{props.author}</p>    
                 </div>
             <div className='card-middle'>
-            <img src={props.thumbnail} alt=""/>
+            <img src={props.thumbnail} alt="nope"/>
             {mediaViewer()}
             </div>
+            
             <div className='card-bottom'>
+            <ul className='card-info'>
                    <h4>{props.author}</h4>
                    <button className='comments-button'>
                     <img className="comment-icon" src="../../images/comments-icon.png" alt=""/>
                     Comments</button>
-                   <p>{props.score}</p></div>
+                   <p>{props.score}</p>
+                   </ul></div>
         </div>
         </div>
     );

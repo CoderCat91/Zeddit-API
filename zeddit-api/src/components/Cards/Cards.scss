@@ -4,10 +4,11 @@
     width: 100%;
     height: 100%;
     border-radius: 12px;
+    background-color: #fff;
     margin: 20px;
     padding: 20px;
     display: flex;
-    box-shadow: 0px 0px 8px #d06666;
+    box-shadow: 0px 0px 8px #ffffff;
     overflow: hidden;
 }
 
@@ -22,18 +23,23 @@
 }
 
 .card-middle {
-    height: 50%;
+    height: auto;
     width: 40%;
     border-bottom: 1px solid lightgray;
+    overflow: hidden;
+
     img {
-        height: 100%;
+        height: 200px;
+        width: 200px;
         background-size: cover;
         background-position: center;
     }
 }
 
+
 .card-bottom {
-    background-color: red;
+   padding: 10px;
+   display: flex;
 }
 
 .box {
