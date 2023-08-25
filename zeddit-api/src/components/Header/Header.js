@@ -1,9 +1,8 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 import './Header.scss';
 import logo from '../../images/vecteezy_reddit-social-media-design-icon-symbol-logo-vector-illustration_8385783.png';
 import { useDispatch } from "react-redux";
-import { setFilter } from "../../features/redditSlice";
+import { setFilter, setSelectedSubreddit} from "../../features/redditSlice";
 
 
 
@@ -11,52 +10,53 @@ import { setFilter } from "../../features/redditSlice";
 const Header = () => {
     const dispatch = useDispatch();
 
-    const handleClickNew = () => {
-        dispatch(setFilter('new'))
-        document.getElementById('new').classList.add('active')
-        document.getElementById('hot').classList.remove('active')
-        document.getElementById('dogs').classList.remove('active')
-        document.getElementById('cats').classList.remove('active')
-    }
 
-    const handleClickHot = () => {
-        dispatch(setFilter('hot'))
-        document.getElementById('hot').classList.add('active')
-        document.getElementById('new').classList.remove('active')
-        document.getElementById('dogs').classList.remove('active')
-        document.getElementById('cats').classList.remove('active')
-    }
+const handleClickFilterTop = () => {
+    dispatch(setFilter('top'))
+}
 
+const handleClickFilterHot = () => {
+    dispatch(setFilter('hot'))
+}
+
+const handleClickSubredditDogs = () => {
+    dispatch(setSelectedSubreddit('dogs'))
+}
+const handleClickSubredditCats = () => {
+    dispatch(setSelectedSubreddit('cats'))
+}
+const goToHome = () => {
+dispatch(setSelectedSubreddit('Animals'))
+}
     
-
     return (
         
         <div className="Header">
-                   <NavLink to="/">
-        <div className='logo'>
-        <img src={logo} alt="alt" />
-        </div>
-        </NavLink>
+            <div className='logo-wrapper'>
+        <button className='logo-button' onClick={goToHome}>
+            <img src={logo} alt="logo"/>
+            </button>
+            </div>
             <ul>
         <li>
-            <button id='new' onClick={handleClickNew}>NEW
+            <button className="header-button" id='new' onClick={handleClickFilterTop}>TOP
                 </button>
                 </li>
             <li>
-                <button  id='hot' onClick={handleClickHot}>HOT
+                <button className="header-button" id='hot' onClick={handleClickFilterHot}>HOT
         </button>
         </li>
             <li>
-                <h1>ZEDDIT</h1>
+            <h1 onClick={goToHome} className='zeddit-header'>ZEDDIT</h1>
             <h3>Zoo Reddit - r/animals</h3>
             </li>
             <li>   
-                <button  id='dogs' >
+                <button className="header-button" id='dogs' onClick={handleClickSubredditDogs}>
                     Dogs
         </button>
         </li>
             <li>        
-                <button id='cats' >
+                <button className="header-button" id='cats' onClick={handleClickSubredditCats} >
                     CATS</button></li>
             </ul>
     </div>

@@ -45,37 +45,10 @@ return (
          <ul>
                     <div className='feed-container'>
                     
-                    {posts.posts.map(feed => {
-                        const title = feed.title;
-                        const subreddit = feed.subreddit_name_prefixed;
-                        const author = feed.author;
-                        const thumbnail = feed.thumbnail;
-                        const score = feed.score;
-                        const fullImage = feed.url
-                        const gif = feed.url_overridden_by_dest
-                        const mediaType = feed.post_hint
-                        const domain = feed.domain
-                        const galleryData = feed.gallery_data
-                        const text = feed.selftext
-                        const permalink = feed.permalink
-                        const id = feed.id
-                        const media = feed.media
-                        return <Cards key={feed.id}
-                        title={title}
-                        subreddit={subreddit}
-                        author={author}
-                        thumbnail={thumbnail}
-                        score={score}
-                        fullImage={fullImage}
-                        gif={gif}
-                        mediaType={mediaType}
-                        domain={domain}
-                        galleryData={galleryData}
-                        text={text}
-                        permalink={permalink}
-                        id={id}
-                        media={media}/>
-                    }
+                    {posts.posts.map((feed, index) => (
+                    <Cards key={feed.id} feed={feed}
+                    />
+                    )
                     )}
                         </div>
                         </ul>

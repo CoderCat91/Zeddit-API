@@ -1,73 +1,80 @@
 import React from 'react';
 import './Cards.scss';
-import {Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+//import Comments from '../Comments/Comments'
 
 
-const Cards = (props) => {
-const gallery = props.galleryData;
-const image = props.thumbnail;
+const Cards = ({feed}) => {
+const gallery = feed.galleryData;
+const text = feed.selftext;
+const image = feed.thumbnail;
+let pics = feed.media_metadata
+console.log(pics)
+
+
+
 
     const mediaViewer = () => {
-        if(!image) {
+        if(image === 'self') {
             return (
-                <div>Haha</div>
+                <div className='text'>
+                    {text}
+                </div>
             )
-        }
-        if(props.mediaType === 'hosted:video') {
+        } if(image) {
+            return (
+                <div>
+                    <img src={image} alt="animal"/>
+                </div>
+                )
+        };
+
+        
+
+        if(feed.mediaType === 'hosted:video') {
             return (
                 <video className="reddit-video" controls>
-                    <source src={props.media.reddit_video.fallback_url} type="video/mp4" ></source>
+                    <source src={feed.media.reddit_video.fallback_url} type="video/mp4" ></source>
                 </video>
             )
-        } if (props.text) {
+        } 
+        if (text) {
             return (
-            <p>{props.text}</p>
+            <p>{text}</p>
             )
         }
-        if(props.galleryData) {
+        if(feed.galleryData) {
             return (
                 <div className="box">
-      <Carousel useKeyboardArrows={true}>
         {gallery.items.map((photos) => (
           <div className="slide" key={photos.id}>
-            <img alt="sample_file" src={props.thumbnail} />
+            <img alt="sample_file" src={feed.media_metadata} />
           </div>
         ))}
-      </Carousel>
     </div>
             )
         }
-        if(props.mediaType === 'link') {
-            return (
-                <div className="link">
-                    <p>See full article here</p>
-                    <p>&darr;</p>
-                    <a href={props.fullImage} target="_blank" rel="noreferrer"><img src={props.thumbnail} alt=""></img></a>
-                </div>
-            )
-        }
     }
+
+
 
     return (
         <div className = "card-wrapper">
         <div className='card-inner'>
             <div className='card-top'>
-                <h2>{props.title}</h2>
-                <p>Posted on: u/{props.author}</p>    
+                <h2>{feed.title}</h2>
+                <p>Posted on: u/{feed.author}</p>    
                 </div>
             <div className='card-middle'>
-            <img src={props.thumbnail} alt="nope"/>
             {mediaViewer()}
+            {feed.text}
             </div>
             
             <div className='card-bottom'>
             <ul className='card-info'>
-                   <h4>{props.author}</h4>
+                   <h4>{feed.author}</h4>
                    <button className='comments-button'>
-                    <img className="comment-icon" src="../../images/comments-icon.png" alt=""/>
                     Comments</button>
-                   <p>{props.score}</p>
+                   <p>Score: {feed.score}</p>
                    </ul></div>
         </div>
         </div>

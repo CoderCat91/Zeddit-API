@@ -15,28 +15,32 @@
     width: 33%;
     height: 50px;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     border-radius: 12px;
     box-shadow: 0px 0px 8px rgb(2, 124, 30);
 }
 .search-form {
-    width: 100%;
+    width: 90%;
     height: 40px;
     display: flex;
     justify-content: right;
-    margin-right: 20px;
+    background-color: antiquewhite;
 }
 
 .search-form img {
     height: 38px;
     width: 38px;
-    margin-right: 20px;
 }
 input {
     height: 40px;
-    min-width: 80%;
+    width: 420px;
     background-color: white;
     text-align: left;
 }
 
+.search-button {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
