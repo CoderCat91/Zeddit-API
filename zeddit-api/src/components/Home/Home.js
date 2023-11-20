@@ -6,10 +6,13 @@ import Posts from '../Posts/Posts';
 import SearchBar from '../SearchBar/SearchBar';
 import './Home.scss'
 import SubRedditsList from '../SubRedditsList/SubRedditsList';
-
+//import {addComments} from '../../features/commentsSlice';
 
 const Home = () => {
     const dispatch = useDispatch();
+
+
+
     
     useEffect(() => {
       dispatch(getPosts());

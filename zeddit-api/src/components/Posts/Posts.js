@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import './Posts.scss';
 import Cards from '../Cards/Cards';
 import FeedError from '../FeedError/FeedError';
-import { getPosts } from '../../features/redditSlice';
+import { getPosts} from '../../features/redditSlice';
 
 
 const Posts = () => {

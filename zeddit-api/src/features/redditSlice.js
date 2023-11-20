@@ -11,8 +11,8 @@ export const getPosts = createAsyncThunk(
 )
 
 
-export const getComments = createAsyncThunk(
-    'posts/getComments',
+export const fetchComments = createAsyncThunk(
+    'posts/fetchComments',
     async (permalink) => {
         const res = await fetch(`https://www.reddit.com${permalink}.json`)
         const json = await res.json()
@@ -20,14 +20,17 @@ export const getComments = createAsyncThunk(
     }
 )
 
+
 const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         posts: [],
         filter: '',
         selectedSubreddit: 'animals',
+        searchTerm: '',
         comments: [],
-        searchTerm: ''
+        commentsIsLoading: false,
+        commentsIsError: false
 
     },
     reducers: {
@@ -58,16 +61,16 @@ const postsSlice = createSlice({
             state.isLoading = false;
             state.error = true;
         })
-        builder.addCase(getComments.pending, (state) =>{
+        builder.addCase(fetchComments.pending, (state) =>{
             state.commentsIsLoading = true;
             state.commentsIsError = false;
         })
-        builder.addCase(getComments.fulfilled, (state, action) => {
+        builder.addCase(fetchComments.fulfilled, (state, action) => {
             state.comments = action.payload;
             state.commentsIsLoading = false;
             state.commentsIsError = false;
         })
-        builder.addCase(getComments.rejected, (state) => {
+        builder.addCase(fetchComments.rejected, (state) => {
             state.commentsIsLoading = false;
             state.commentsIsError = true;
         })
@@ -78,5 +81,5 @@ export const {getAllPosts} = state => state.posts.posts;
 export const selectSelectedSubreddit = state => state.posts.selectedSubreddit;
 export default postsSlice.reducer;
 export const { addPosts, setFilter, setSelectedSubreddit, setSearchTerm } = postsSlice.actions;
-export const selectComments = state => state.posts.comments;
 export const selectSearchTerm =  state => state.posts.searchTerm;
+export const selectComments = state => state.posts.comments;

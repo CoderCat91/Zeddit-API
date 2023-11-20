@@ -1,2 +1,29 @@
 @import '../../common/styles.scss';
 
+.comments-wrapper {
+    height: auto;
+    width: 105%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-family: 'Geologica', sans-serif;
+    background-color: rgba(4, 141, 34, 0.356);
+    border-radius: 12px;
+    border: solid black 1px;
+    padding: 10px;
+}
+
+.comments-top {
+    padding: 10px;
+}
+
+.comments-top p {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.comments-body {
+padding-left: 10px;
+}
+

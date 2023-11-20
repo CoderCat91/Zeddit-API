@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Cards.scss';
-//import Comments from '../Comments/Comments'
+import Comments from '../Comments/Comments';
+import { useDispatch, useSelector } from 'react-redux';
+import {fetchComments} from '../../features/redditSlice';
 
 
 const Cards = ({feed}) => {
-const gallery = feed.galleryData;
+//const gallery = feed.galleryData;
 const text = feed.selftext;
 const image = feed.thumbnail;
-let pics = feed.media_metadata
-console.log(pics)
+const [showComments, setShowComments] = useState('hidden')
 
+
+    const dispatch = useDispatch();
+    const posts = useSelector((state) => state.posts)
+    const permalink = feed.permalink;
+    let commentList = '';
+   
+    const toggleComments = () => {
+        if(showComments === 'hidden') {
+            dispatch(fetchComments(permalink))
+            setShowComments('show')
+        }
+        if(showComments === 'show')
+            setShowComments('hidden')
+    }
 
 
 
@@ -28,34 +43,32 @@ console.log(pics)
                 )
         };
 
-        
-
-        if(feed.mediaType === 'hosted:video') {
-            return (
-                <video className="reddit-video" controls>
-                    <source src={feed.media.reddit_video.fallback_url} type="video/mp4" ></source>
-                </video>
-            )
-        } 
+    
         if (text) {
             return (
             <p>{text}</p>
             )
         }
-        if(feed.galleryData) {
-            return (
-                <div className="box">
-        {gallery.items.map((photos) => (
-          <div className="slide" key={photos.id}>
-            <img alt="sample_file" src={feed.media_metadata} />
-          </div>
-        ))}
-    </div>
-            )
-        }
     }
 
-
+    if(posts.comments) {
+        
+        commentList = posts.comments.slice(0,15).map(comments => {
+            const body = comments.body
+            const author = comments.author
+            const ups = comments.ups 
+            return (
+                <Comments
+                    body={body}
+                    author={author}
+                    ups={ups}
+                />
+                
+            )
+          
+        }
+        );
+    } 
 
     return (
         <div className = "card-wrapper">
@@ -68,17 +81,25 @@ console.log(pics)
             {mediaViewer()}
             {feed.text}
             </div>
-            
             <div className='card-bottom'>
             <ul className='card-info'>
                    <h4>{feed.author}</h4>
-                   <button className='comments-button'>
-                    Comments</button>
+                   <button className="comments-button" onClick={toggleComments}>
+                        Comments</button>
                    <p>Score: {feed.score}</p>
-                   </ul></div>
+                   </ul>
+                   </div>
+  
+            <div className={showComments} >
+                 <ul className='comment-list'>
+                    <li>{commentList}</li>
+                    </ul>
         </div>
         </div>
-    );
+        </div>
+        
+
+                      );
 };
 
 export default Cards;

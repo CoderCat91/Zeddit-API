@@ -1,26 +1,30 @@
-import React, {useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import './Comments.scss';
+import { useSelector } from 'react-redux';
 import { selectComments } from '../../features/redditSlice';
 
-const Comments = ({feed}) => {
-    const dispatch = useDispatch();
-    const comment = useSelector(selectComments);
 
-    useEffect(() => {
-        dispatch(selectComments())
-    }, [dispatch])
+const Comments = (props) => {
+    const comments = useSelector(selectComments);
+    console.log(comments);
+const author = props.author;
+const body = props.body;
+
+if(comments.length) {
+
     return (
-        <div className="comment">
-        <div className="top">
-            <p className="author">u/{feed.author}</p>
-            <div className="score">
-                <img src='/top-icon.png' alt=""></img>
-                <p className="props">{feed.score}</p>
+        <div className="comments-wrapper">
+            <div className="comments-top">
+                <p>Comment by: u/{author}</p>
             </div>
+            <div className="comments-body">
+                <p >{body}</p>
+                </div>
+          
         </div>
-        <p className="body">{feed.body}</p>
-    </div>
-    );
-};
+    )
+}
+   };
+;
 
 export default Comments;
