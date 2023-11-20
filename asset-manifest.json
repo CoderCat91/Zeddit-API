@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Zeddit-API/static/css/main.fce10206.css",
+    "main.js": "/Zeddit-API/static/js/main.bda09ee8.js",
+    "static/js/787.030dcb4d.chunk.js": "/Zeddit-API/static/js/787.030dcb4d.chunk.js",
+    "static/media/shutterstock_1717271977.jpg": "/Zeddit-API/static/media/shutterstock_1717271977.766974d339a7acb65446.jpg",
+    "static/media/vecteezy_404-landing-page_6549647.jpg": "/Zeddit-API/static/media/vecteezy_404-landing-page_6549647.38da77fa310c806b1db8.jpg",
+    "static/media/shutterstock_2279858155.png": "/Zeddit-API/static/media/shutterstock_2279858155.e63bba96dc3c9838cc30.png",
+    "static/media/vecteezy_reddit-social-media-design-icon-symbol-logo-vector-illustration_8385783.png": "/Zeddit-API/static/media/vecteezy_reddit-social-media-design-icon-symbol-logo-vector-illustration_8385783.1035ba86c0ca771df416.png",
+    "index.html": "/Zeddit-API/index.html",
+    "main.fce10206.css.map": "/Zeddit-API/static/css/main.fce10206.css.map",
+    "main.bda09ee8.js.map": "/Zeddit-API/static/js/main.bda09ee8.js.map",
+    "787.030dcb4d.chunk.js.map": "/Zeddit-API/static/js/787.030dcb4d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fce10206.css",
+    "static/js/main.bda09ee8.js"
+  ]
+}
